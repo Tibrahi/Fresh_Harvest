@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deliver - Fresh Harvest</title>
+    <link rel="icon" type="image/svg+xml" href="public/assets/deliver-favicon.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="js/deliver.js" defer></script>
+    <style>
+        .topup-message {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fffbe6;
+            color: #222e1e;
+            border: 2px solid #ffa726;
+            border-radius: 10px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+            padding: 1.5rem 2.5rem 1.5rem 2rem;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+        .topup-close {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            color: #d32f2f;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <img src="public/assets/logo.svg" alt="Fresh Harvest Logo" class="logo-img">
+                <span class="logo-text">Fresh Harvest</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="deliver.html" class="active">Deliver</a></li>
+                <li><a href="index.html#contact" class="cta-button">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main style="margin-top:120px;">
+        <section class="about-section">
+            <div class="deliver-flex">
+                <div class="deliver-right">
+                    <form id="deliverForm" class="deliver-form">
+                        <input type="hidden" id="product" name="product">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Name:</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="address"><i class="fas fa-map-marker-alt"></i> Address:</label>
+                            <input type="text" id="address" name="address" required placeholder="Delivery address">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone:</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="10-digit phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="date"><i class="fas fa-calendar-alt"></i> Delivery Date:</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="order"><i class="fas fa-box"></i> Order:</label>
+                            <input type="text" id="order" name="order" required placeholder="Product name will appear here">
+                        </div>
+                        <button type="submit" class="primary-button" style="margin-top:1rem;width:100%;">Submit Order</button>
+                    </form>
+                </div>
+                <div class="deliver-left">
+                    <h2 class="about-title">Order Delivery</h2>
+                    <p class="about-desc">Select your product and fill out the form to schedule your delivery. All fields are required.</p>
+                    <div class="product-select-main">
+                        <div class="product-main-choice"></div>
+                        <div class="product-select-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Fresh Harvest</h3>
+                <p>Your trusted source for organic crops</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="deliver.html">Deliver</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fresh Harvest. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
