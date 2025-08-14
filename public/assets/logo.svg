@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .leaf { fill: #4CAF50; }
+        .center { fill: #FFA726; }
+        .vein { stroke: #45a049; stroke-width: 1.5; stroke-opacity: 0.6; }
+        .highlight { fill: #66BB6A; }
+        .shadow { fill: #388E3C; }
+    </style>
+    
+    <!-- Main leaf shape -->
+    <g transform="translate(50, 50)">
+        <!-- Shadow layer -->
+        <path class="shadow" d="M-30,-20 C-35,-10 -35,10 -25,20 C-15,30 5,35 15,30 C25,25 30,15 25,5 C20,-5 10,-10 -5,-5 C-20,0 -25,-10 -30,-20 Z" transform="rotate(-45) translate(2, 2)"/>
+        
+        <!-- Main leaf -->
+        <path class="leaf" d="M-30,-20 C-35,-10 -35,10 -25,20 C-15,30 5,35 15,30 C25,25 30,15 25,5 C20,-5 10,-10 -5,-5 C-20,0 -25,-10 -30,-20 Z" transform="rotate(-45)"/>
+        
+        <!-- Highlight -->
+        <path class="highlight" d="M-25,-15 C-28,-8 -28,8 -20,15 C-12,22 5,25 12,20 C19,15 22,8 18,2 C14,-4 8,-7 -3,-4 C-14,-1 -18,-8 -25,-15 Z" transform="rotate(-45) translate(-2, -2)"/>
+        
+        <!-- Center circle -->
+        <circle class="center" cx="0" cy="0" r="6"/>
+        
+        <!-- Leaf veins -->
+        <g class="vein">
+            <!-- Main vein -->
+            <path d="M0,0 L-25,25" transform="rotate(-45)"/>
+            <path d="M0,0 L25,-25" transform="rotate(-45)"/>
+            
+            <!-- Secondary veins -->
+            <path d="M-15,15 L-20,25" transform="rotate(-45)"/>
+            <path d="M15,-15 L20,-25" transform="rotate(-45)"/>
+            <path d="M-10,10 L-15,20" transform="rotate(-45)"/>
+            <path d="M10,-10 L15,-20" transform="rotate(-45)"/>
+        </g>
+    </g>
+</svg>

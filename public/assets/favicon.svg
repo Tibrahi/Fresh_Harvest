@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .leaf { fill: #4CAF50; }
+        .center { fill: #FFA726; }
+    </style>
+    <!-- Background circle -->
+    <circle cx="16" cy="16" r="16" fill="#FFFFFF"/>
+    <!-- Leaf shape -->
+    <path class="leaf" d="M16,4 C22,4 28,10 28,16 C28,22 22,28 16,28 C10,28 4,22 4,16 C4,10 10,4 16,4 Z"/>
+    <!-- Center circle -->
+    <circle class="center" cx="16" cy="16" r="4"/>
+    <!-- Leaf veins -->
+    <path d="M16,4 L16,28" stroke="#45a049" stroke-width="1" stroke-opacity="0.5"/>
+    <path d="M4,16 L28,16" stroke="#45a049" stroke-width="1" stroke-opacity="0.5"/>
+</svg> 

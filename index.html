@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fresh and organic crops delivered to your doorstep">
+    <title>Fresh Harvest - Organic Crops</title>
+    <link rel="icon" type="image/svg+xml" href="public/assets/favicon.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <div class="promo-banner">
+        <div class="promo-track">
+            <div class="promo-item">
+                <i class="fas fa-truck"></i>
+                <span>Free Delivery on Orders Above $50</span>
+            </div>
+            <div class="promo-item">
+                <i class="fas fa-leaf"></i>
+                <span>100% Organic Products</span>
+            </div>
+            <div class="promo-item">
+                <i class="fas fa-clock"></i>
+                <span>Same Day Delivery</span>
+            </div>
+            <div class="promo-item">
+                <i class="fas fa-medal"></i>
+                <span>Quality Guaranteed</span>
+            </div>
+            <!-- Duplicate items for continuous scroll -->
+            <div class="promo-item">
+                <i class="fas fa-truck"></i>
+                <span>Free Delivery on Orders Above $50</span>
+            </div>
+            <div class="promo-item">
+                <i class="fas fa-leaf"></i>
+                <span>100% Organic Products</span>
+            </div>
+            <div class="promo-item">
+                <i class="fas fa-clock"></i>
+                <span>Same Day Delivery</span>
+            </div>
+            <div class="promo-item">
+                <i class="fas fa-medal"></i>
+                <span>Quality Guaranteed</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <img src="public/assets/logo.svg" alt="Fresh Harvest Logo" class="logo-img">
+                <span class="logo-text">Fresh Harvest</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact" class="cta-button">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <section id="home" class="parallax-section">
+        <div class="hero-carousel">
+            <div class="carousel-track">
+                <div class="carousel-slide active">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200&auto=format&fit=crop" alt="Fresh Organic Vegetables">
+                    <div class="slide-overlay"></div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=1200&auto=format&fit=crop" alt="Fresh Fruits">
+                    <div class="slide-overlay"></div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=1200&auto=format&fit=crop" alt="Organic Grains">
+                    <div class="slide-overlay"></div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-prev" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-next" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="carousel-indicators">
+                <button class="indicator active" aria-label="Go to slide 1"></button>
+                <button class="indicator" aria-label="Go to slide 2"></button>
+                <button class="indicator" aria-label="Go to slide 3"></button>
+            </div>
+        </div>
+        <div class="content" data-aos="fade-up">
+            <h1>Fresh Organic Crops</h1>
+            <p>Farm-fresh produce delivered to your doorstep</p>
+            <div class="cta-buttons">
+                <a href="#products" class="primary-button">Shop Now</a>
+                <a href="#about" class="secondary-button">Learn More</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section id="products" class="features-section">
+        <h2 class="section-title" data-aos="fade-up">Our Products</h2>
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-seedling"></i>
+                <h2>Organic Vegetables</h2>
+                <p>Fresh, pesticide-free vegetables grown with care</p>
+                <a href="#" class="learn-more">Shop Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-apple-alt"></i>
+                <h2>Fresh Fruits</h2>
+                <p>Seasonal fruits picked at peak ripeness</p>
+                <a href="#" class="learn-more">Shop Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-wheat"></i>
+                <h2>Grains & Pulses</h2>
+                <p>High-quality grains and pulses for your kitchen</p>
+                <a href="#" class="learn-more">Shop Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="content">
+            <h2 data-aos="fade-up">How We Make Our Products</h2>
+            <p data-aos="fade-up">From seed to harvest, we ensure the highest quality in every step</p>
+            <div class="process-container">
+                <div class="process-grid">
+                    <!-- Left Column -->
+                    <div class="process-column">
+                        <div class="process-item" data-aos="fade-right">
+                            <div class="process-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="process-content">
+                                <h3>Organic Seeds</h3>
+                                <p>We start with certified organic seeds, ensuring the best genetic quality</p>
+                            </div>
+                        </div>
+                        <div class="process-item" data-aos="fade-right" data-aos-delay="200">
+                            <div class="process-icon">
+                                <i class="fas fa-hand-holding-seedling"></i>
+                            </div>
+                            <div class="process-content">
+                                <h3>Careful Cultivation</h3>
+                                <p>Our farmers carefully tend to each plant, ensuring healthy growth</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Column -->
+                    <div class="process-column">
+                        <div class="process-item" data-aos="fade-left" data-aos-delay="100">
+                            <div class="process-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div class="process-content">
+                                <h3>Natural Growth</h3>
+                                <p>Plants grow naturally under optimal conditions with proper sunlight and water</p>
+                            </div>
+                        </div>
+                        <div class="process-item" data-aos="fade-left" data-aos-delay="300">
+                            <div class="process-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="process-content">
+                                <h3>Quality Check</h3>
+                                <p>Every product undergoes rigorous quality control before reaching you</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="subscribe-section">
+        <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+        <div class="subscribe-container">
+            <div class="subscribe-content" data-aos="fade-up">
+                <h3>Get in Touch</h3>
+                <p>Have questions? We'd love to hear from you</p>
+                <form class="subscribe-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="subscribe-button">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Fresh Harvest</h3>
+                <p>Your trusted source for organic crops</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fresh Harvest. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html> 
