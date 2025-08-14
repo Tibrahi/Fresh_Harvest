@@ -143,57 +143,66 @@ nav {
 }
 
 /* Pause animation on hover */
-.promo-banner:hover .promo-track {
-    animation-play-state: paused;
+/* About Section Styles */
+.about-section {
+    background: #f8f9fa;
+    padding: 60px 0;
 }
-
-/* Add gradient overlays for smooth edges */
-.promo-banner::before,
-.promo-banner::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100px;
-    height: 100%;
-    z-index: 2;
+.about-section .content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
 }
-
-.promo-banner::before {
-    left: 0;
-    background: linear-gradient(to right, var(--primary-color), transparent);
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
 }
-
-.promo-banner::after {
-    right: 0;
-    background: linear-gradient(to left, var(--primary-color), transparent);
-}
-
-/* Process Section */
-.process-container {
-    margin-top: 3rem;
-    padding: 0 2rem;
-}
-
-.process-grid {
+.about-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    padding: 32px 24px;
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.process-item {
-    display: flex;
     align-items: center;
-    gap: 3rem;
-    padding: 2rem;
-    background: var(--white);
-    border-radius: 15px;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-    position: relative;
+    transition: box-shadow 0.2s;
+}
+.about-card:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+.about-icon {
+    font-size: 2.7rem;
+    color: #7ac142;
+    margin-bottom: 16px;
+}
+.about-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.about-card p {
+    margin: 0;
+    color: #555;
+    font-size: 1.05rem;
 }
 
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+@media (max-width: 900px) {
+    .process-flex {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .process-side {
+        gap: 24px;
+    }
+}
 /* Alternate left and right alignment */
 .process-item:nth-child(odd) {
     flex-direction: row;
