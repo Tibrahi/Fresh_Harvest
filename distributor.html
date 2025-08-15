@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributor Agreement Approval - Fresh Harvest</title>
+    <link rel="icon" type="image/svg+xml" href="public/assets/distributor-favicon.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .approval-form {
+            background: #f3f7f0;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+            padding: 2rem 2rem 1rem 2rem;
+            max-width: 520px;
+            margin: 2rem auto;
+        }
+        .approval-form .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.2rem;
+        }
+        .approval-form label {
+            font-weight: 500;
+            color: #2d4a2d;
+            margin-bottom: 0.5rem;
+        }
+        .approval-form input, .approval-form textarea {
+            padding: 0.8rem 2rem;
+            border: 2px solid #cde6c1;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: #fff;
+            color: #222e1e;
+            transition: border-color 0.2s;
+        }
+        .approval-form input:focus, .approval-form textarea:focus {
+            border-color: #7ac142;
+            outline: none;
+        }
+        .approval-form .primary-button {
+            background: #7ac142;
+            color: #fff;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            padding: 1rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 1rem;
+        }
+        .approval-form .primary-button:hover {
+            background: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <img src="public/assets/logo.svg" alt="Fresh Harvest Logo" class="logo-img">
+                <span class="logo-text">Fresh Harvest</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="deliver.html">Deliver</a></li>
+                <li><a href="distributor.html" class="active">Distributor Approval</a></li>
+                <li><a href="partner.html">Become Partner</a></li>
+                <li><a href="index.html#contact" class="cta-button">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main style="margin-top:120px;">
+        <section class="about-section">
+            <div class="content" style="max-width:900px;">
+                <h2 class="about-title">Distributor Approval Dashboard</h2>
+                <p class="about-desc">Review distributor companies, their products, and approve or reject requests. Click 'Text Us' to contact a company directly.</p>
+                <div class="distributor-list">
+                    <aside class="shortlisted-info" style="display:none;"></aside>
+                    <div id="distributor-cards"></div>
+                </div>
+                <script>
+                // Distributor data sample
+                const distributors = Array.from({length: 30}, (_, i) => ({
+                    name: `Distributor ${i+1}`,
+                    products: ["Vegetables", "Fruits", "Grains", "Pulses"][i%4],
+                    location: ["California", "Texas", "Florida", "New York"][i%4] + ", USA",
+                    about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                    logo: `https://randomuser.me/api/portraits/${i%2===0?'men':'women'}/${30+i}.jpg`
+                }));
+
+                const cardsContainer = document.getElementById('distributor-cards');
+                const shortlistedInfo = document.querySelector('.shortlisted-info');
+
+                distributors.forEach((dist, idx) => {
+                    const card = document.createElement('div');
+                    card.className = 'distributor-card';
+                    card.innerHTML = `
+                        <div class="distributor-info">
+                            <img src="${dist.logo}" alt="Company Logo" class="distributor-logo">
+                            <div>
+                                <h3>${dist.name}</h3>
+                                <p>Products: ${dist.products}</p>
+                                <p>Location: ${dist.location}</p>
+                                <p>About: ${dist.about}</p>
+                            </div>
+                        </div>
+                        <div class="distributor-actions">
+                            <button class="approve-btn">Approve</button>
+                            <button class="reject-btn">Reject</button>
+                            <button class="text-btn">Text Us</button>
+                            <button class="see-btn">See</button>
+                        </div>
+                    `;
+                    // Approve button event
+                    card.querySelector('.approve-btn').addEventListener('click', () => {
+                        const date = new Date().toLocaleDateString();
+                        shortlistedInfo.style.display = 'block';
+                        shortlistedInfo.innerHTML = `
+                            <h3>Shortlisted Distributor</h3>
+                            <p><strong>Name:</strong> ${dist.name}</p>
+                            <p><strong>Products:</strong> ${dist.products}</p>
+                            <p><strong>Location:</strong> ${dist.location}</p>
+                            <p><strong>Approved On:</strong> ${date}</p>
+                        `;
+                    });
+                    // Reject button event
+                    card.querySelector('.reject-btn').addEventListener('click', () => {
+                        card.style.opacity = '0.4';
+                        card.querySelector('.distributor-actions').innerHTML = '<span style="color:#c00;font-weight:600;">Rejected</span>';
+                    });
+                    // Text Us button event
+                    card.querySelector('.text-btn').addEventListener('click', () => {
+                        window.location.href = 'text.html';
+                    });
+                    // See button event
+                    card.querySelector('.see-btn').addEventListener('click', () => {
+                        alert(`See more about ${dist.name}`);
+                    });
+                    cardsContainer.appendChild(card);
+                });
+                </script>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Fresh Harvest</h3>
+                <p>Your trusted source for organic crops</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="deliver.html">Deliver</a></li>
+                    <li><a href="distributor.html">Distributor Approval</a></li>
+                    <li><a href="partner.html">Become Partner</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fresh Harvest. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
