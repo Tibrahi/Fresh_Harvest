@@ -1,3 +1,107 @@
+/* Shop Now Page Styles */
+.shop-section {
+    background: #f8faf8;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    padding: 2.5rem;
+}
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.shop-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s;
+}
+.shop-card:hover {
+    box-shadow: 0 4px 16px rgba(44,74,44,0.12);
+}
+.shop-img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.shop-details {
+    width: 100%;
+    text-align: left;
+}
+.shop-details h3 {
+    color: #2d4a2d;
+    margin-bottom: 0.5rem;
+}
+.shop-details p {
+    margin: 0.2rem 0;
+    color: #555;
+    font-size: 1rem;
+}
+.shop-actions {
+    display: flex;
+    gap: 0.7rem;
+    margin: 1rem 0 0.5rem 0;
+}
+.shop-actions button {
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1.1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.catalog-btn {
+    background: #1976d2;
+    color: #fff;
+}
+.catalog-btn:hover {
+    background: #0d47a1;
+}
+.like-btn {
+    background: #ffa726;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.like-btn:hover {
+    background: #fb8c00;
+    color: #fff;
+}
+.buy-btn {
+    background: #2d8a34;
+    color: #fff;
+}
+.buy-btn:hover {
+    background: #206624;
+}
+.shop-status {
+    margin-top: 0.5rem;
+    font-size: 0.98rem;
+    color: #2d4a2d;
+    font-weight: 500;
+}
+.sold-count {
+    background: #eaf6ea;
+    border-radius: 6px;
+    padding: 0.2rem 0.7rem;
+}
+@media (max-width: 700px) {
+    .shop-section {
+        padding: 1rem;
+    }
+    .shop-grid {
+        grid-template-columns: 1fr;
+    }
+}
 /* Distributor Dashboard Button Styles */
 .distributor-actions button {
     border: none;

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Now - Fresh Harvest Market</title>
+    <link rel="icon" type="image/svg+xml" href="public/assets/favicon.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>go
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <img src="public/assets/logo.svg" alt="Fresh Harvest Logo" class="logo-img">
+                <span class="logo-text">Fresh Harvest</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="deliver.html">Deliver</a></li>
+                <li><a href="distributor.html">Distributor Approval</a></li>
+                <li><a href="partner.html">Become Partner</a></li>
+                <li><a href="#contact" class="cta-button">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="shop-section" style="max-width:1100px;margin:2rem auto;">
+            <h2>Market - Shop Now</h2>
+            <div id="shop-grid" class="shop-grid"></div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Fresh Harvest</h3>
+                <p>Your trusted source for organic crops</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="deliver.html">Deliver</a></li>
+                    <li><a href="distributor.html">Distributor Approval</a></li>
+                    <li><a href="partner.html">Become Partner</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fresh Harvest. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+    // Sample product data
+    const products = [
+        {
+            name: "Organic Tomatoes",
+            origin: "California, USA",
+            price: 3.99,
+            image: "https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400&auto=format&fit=crop",
+            likes: 0,
+            catalog: false,
+            sold: 0
+        },
+        {
+            name: "Fresh Apples",
+            origin: "Washington, USA",
+            price: 2.49,
+            image: "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&auto=format&fit=crop",
+            likes: 0,
+            catalog: false,
+            sold: 0
+        },
+        {
+            name: "Organic Wheat",
+            origin: "Kansas, USA",
+            price: 1.99,
+            image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=400&auto=format&fit=crop",
+            likes: 0,
+            catalog: false,
+            sold: 0
+        },
+        {
+            name: "Fresh Mangoes",
+            origin: "Florida, USA",
+            price: 4.99,
+            image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&auto=format&fit=crop",
+            likes: 0,
+            catalog: false,
+            sold: 0
+        }
+    ];
+    const shopGrid = document.getElementById('shop-grid');
+    function renderProducts() {
+        shopGrid.innerHTML = '';
+        products.forEach((prod, idx) => {
+            const card = document.createElement('div');
+            card.className = 'shop-card';
+            card.innerHTML = `
+                <img src="${prod.image}" alt="${prod.name}" class="shop-img">
+                <div class="shop-details">
+                    <h3>${prod.name}</h3>
+                    <p><strong>Origin:</strong> ${prod.origin}</p>
+                    <p><strong>Price:</strong> $${prod.price.toFixed(2)}</p>
+                    <div class="shop-actions">
+                        <button class="catalog-btn">${prod.catalog ? 'Added' : 'Add to Catalog'}</button>
+                        <button class="like-btn"><i class="fas fa-heart"></i> <span>${prod.likes}</span></button>
+                        <button class="buy-btn">Buy</button>
+                    </div>
+                    <div class="shop-status">
+                        <span class="sold-count">Sold: ${prod.sold}</span>
+                    </div>
+                </div>
+            `;
+            // Add to Catalog
+            card.querySelector('.catalog-btn').addEventListener('click', () => {
+                prod.catalog = true;
+                renderProducts();
+            });
+            // Like product
+            card.querySelector('.like-btn').addEventListener('click', () => {
+                prod.likes++;
+                renderProducts();
+            });
+            // Buy product
+            card.querySelector('.buy-btn').addEventListener('click', () => {
+                prod.sold++;
+                let btn = card.querySelector('.buy-btn');
+                btn.textContent = 'Purchased!';
+                setTimeout(() => {
+                    btn.textContent = 'Buy';
+                    renderProducts();
+                }, 1200);
+            });
+            shopGrid.appendChild(card);
+        });
+    }
+    renderProducts();
+    </script>
+</body>
+</html>
