@@ -1,0 +1,40 @@
+s<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Fresh Harvest</title>
+    <link rel="icon" type="image/svg+xml" href="public/assets/favicon.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <img src="public/assets/logo.svg" alt="Fresh Harvest Logo" class="logo-img">
+                <span class="logo-text">Fresh Harvest</span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="auth-section" style="max-width:400px;margin:2rem auto;background:#fff;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.08);padding:2rem;">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" name="email" required>
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="password" required>
+                <div style="margin:0.5rem 0 1rem 0;display:flex;align-items:center;gap:0.5rem;">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe" style="font-size:0.98rem;">Remember Me</label>
+                </div>
+                <button type="submit">Login</button>
+                <p style="margin-top:1rem;">Don't have an account? <a href="register.html">Register</a></p>
+            </form>
+            <div id="loginMsg" style="margin-top:1rem;color:#e53935;"></div>
+        </section>
+    </main>
+    <script src="js/auth.js"></script>
+</body>
+</html>

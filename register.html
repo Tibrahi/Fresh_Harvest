@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Fresh Harvest</title>
+    <link rel="icon" type="image/svg+xml" href="public/assets/favicon.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <img src="public/assets/logo.svg" alt="Fresh Harvest Logo" class="logo-img">
+                <span class="logo-text">Fresh Harvest</span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="auth-section" style="max-width:400px;margin:2rem auto;background:#fff;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.08);padding:2rem;">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="regName">Full Name</label>
+                <input type="text" id="regName" name="name" required>
+                <label for="regEmail">Email</label>
+                <input type="email" id="regEmail" name="email" required>
+                <label for="regPassword">Password</label>
+                <input type="password" id="regPassword" name="password" required>
+                <button type="submit">Register</button>
+                <p style="margin-top:1rem;">Already have an account? <a href="login.html">Login</a></p>
+            </form>
+            <div id="registerMsg" style="margin-top:1rem;color:#e53935;"></div>
+        </section>
+    </main>
+    <script src="js/auth.js"></script>
+</body>
+</html>
