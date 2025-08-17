@@ -61,11 +61,58 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#products">Products</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Service <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="partner.html">Become Partner</a></li>
+                        <li><a href="distributor.html">Distributor Approval</a></li>
+                        <li><a href="deliver.html">Deliver</a></li>
+                        <li><a href="shop.html">Shop Now</a></li>
+                    </ul>
+                </li>
                 <li><a href="#about">About</a></li>
-                <li><a href="deliver.html">Deliver</a></li>
-                <li><a href="distributor.html">Distributor Approval</a></li>
-                <li><a href="partner.html">Become Partner</a></li>
                 <li><a href="#contact" class="cta-button">Contact</a></li>
+    <style>
+    .dropdown {
+        position: relative;
+    }
+    .dropdown-toggle {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        border-radius: 8px;
+        min-width: 180px;
+        z-index: 10;
+        padding: 0.5rem 0;
+    }
+    .dropdown-menu li {
+        list-style: none;
+    }
+    .dropdown-menu a {
+        display: block;
+        padding: 0.7rem 1.2rem;
+        color: #2d4a2d;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+    .dropdown-menu a:hover {
+        background: #eaf6ea;
+    }
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
+        display: block;
+    }
+    </style>
             </ul>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -132,7 +179,11 @@
                 <a href="#" class="learn-more">Shop Now <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                <i class="fas fa-wheat"></i>
+                <span style="display:flex;align-items:center;gap:0.5rem;">
+                    <i class="fas fa-wheat"></i>
+                    <i class="fas fa-bread-slice"></i>
+                    <i class="fas fa-seedling"></i>
+                </span>
                 <h2>Grains & Pulses</h2>
                 <p>High-quality grains and pulses for your kitchen</p>
                 <a href="#" class="learn-more">Shop Now <i class="fas fa-arrow-right"></i></a>
@@ -151,7 +202,11 @@
                     <p>Certified organic seeds for the best genetic quality.</p>
                 </div>
                 <div class="about-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="about-icon"><i class="fas fa-hand-holding-seedling"></i></div>
+                    <div class="about-icon" style="display:flex;align-items:center;gap:0.5rem;">
+                        <i class="fas fa-hand-holding-seedling"></i>
+                        <i class="fas fa-tools"></i>
+                        <i class="fas fa-water"></i>
+                    </div>
                     <h3>Careful Cultivation</h3>
                     <p>Farmers tend to each plant for healthy growth.</p>
                 </div>
@@ -198,6 +253,7 @@
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#products">Products</a></li>
+                    <li><a href="shop.html">Shop Now</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="deliver.html">Deliver</a></li>
                     <li><a href="distributor.html">Distributor Approval</a></li>
