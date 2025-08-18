@@ -7,12 +7,13 @@ if (document.getElementById('registerForm')) {
         const name = document.getElementById('regName').value;
         const email = document.getElementById('regEmail').value;
         const password = document.getElementById('regPassword').value;
-        if(name === '' || email === '' || password === '') {
+        const role = document.getElementById('regRole').value;
+        if(name === '' || email === '' || password === '' || role === '') {
             document.getElementById('registerMsg').textContent = 'Please fill in all fields.';
             return;
         }
-        // Save credentials to localStorage
-        localStorage.setItem('fh_user', JSON.stringify({ name, email, password }));
+        // Save credentials and role to localStorage
+        localStorage.setItem('fh_user', JSON.stringify({ name, email, password, role }));
         document.getElementById('registerMsg').style.color = '#2d8a34';
         document.getElementById('registerMsg').textContent = 'Registration successful!';
         setTimeout(()=>window.location.href='login.html',1200);
@@ -39,7 +40,12 @@ if (document.getElementById('loginForm')) {
             } else {
                 localStorage.removeItem('fh_remember');
             }
-            setTimeout(()=>window.location.href='index.html',1200);
+            let redirect = 'index.html';
+            if(user.role === 'partner') redirect = 'partner.html';
+            else if(user.role === 'distributor') redirect = 'distributor.html';
+            else if(user.role === 'deliver') redirect = 'deliver.html';
+            else if(user.role === 'shop') redirect = 'shop.html';
+            setTimeout(()=>window.location.href=redirect,1200);
         } else {
             document.getElementById('loginMsg').style.color = '#e53935';
             document.getElementById('loginMsg').textContent = 'Invalid credentials.';

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributor Approval Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="public/assets/distributor-favicon.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <img src="public/assets/logo.svg" alt="Fresh Harvest Logo" class="logo-img">
+                <span class="logo-text">Fresh Harvest</span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="dashboard-section" style="max-width:1000px;margin:2rem auto;background:#f8faf8;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,0.06);padding:2.5rem;">
+            <h2>Distributor Approval Dashboard</h2>
+            <div class="dashboard-tables" style="display:flex;gap:2rem;flex-wrap:wrap;">
+                <div style="flex:1;min-width:320px;">
+                    <h3>Approved Distributors</h3>
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr><th>Name</th><th>Products</th><th>Location</th><th>Date</th></tr>
+                        </thead>
+                        <tbody id="approved-table-body"></tbody>
+                    </table>
+                </div>
+                <div style="flex:1;min-width:320px;">
+                    <h3>Rejected Distributors</h3>
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr><th>Name</th><th>Products</th><th>Location</th><th>Date</th></tr>
+                        </thead>
+                        <tbody id="rejected-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+    // Load approved/rejected info from localStorage
+    const approved = JSON.parse(localStorage.getItem('fh_approved_distributors')||'[]');
+    const rejected = JSON.parse(localStorage.getItem('fh_rejected_distributors')||'[]');
+    function renderTable(list, tbodyId) {
+        const tbody = document.getElementById(tbodyId);
+        tbody.innerHTML = list.length ? list.map(d => `<tr><td>${d.name}</td><td>${d.products}</td><td>${d.location}</td><td>${d.date||''}</td></tr>`).join('') : `<tr><td colspan='4' style='color:#aaa;'>None</td></tr>`;
+    }
+    renderTable(approved, 'approved-table-body');
+    renderTable(rejected, 'rejected-table-body');
+    </script>
+</body>
+</html>
