@@ -75,75 +75,105 @@
         </nav>
     </header>
     <main style="margin-top:120px;">
-        <section class="about-section">
-            <div class="content" style="max-width:900px;">
-                <h2 class="about-title">Distributor Approval Dashboard</h2>
-                <p class="about-desc">Review distributor companies, their products, and approve or reject requests. Click 'Text Us' to contact a company directly.</p>
-                <div class="distributor-list">
-                    <aside class="shortlisted-info" style="display:none;"></aside>
+        <section class="distributor-approval-section">
+            <div class="distributor-approval-layout">
+                <div class="distributor-cards-col">
+                    <h2 class="about-title">Distributor Approval Dashboard</h2>
                     <div id="distributor-cards"></div>
                 </div>
-                <script>
-                // Distributor data sample
-                const distributors = Array.from({length: 30}, (_, i) => ({
-                    name: `Distributor ${i+1}`,
-                    products: ["Vegetables", "Fruits", "Grains", "Pulses"][i%4],
-                    location: ["California", "Texas", "Florida", "New York"][i%4] + ", USA",
-                    about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                    logo: `https://randomuser.me/api/portraits/${i%2===0?'men':'women'}/${30+i}.jpg`
-                }));
-
-                const cardsContainer = document.getElementById('distributor-cards');
-                const shortlistedInfo = document.querySelector('.shortlisted-info');
-
-                distributors.forEach((dist, idx) => {
-                    const card = document.createElement('div');
-                    card.className = 'distributor-card';
-                    card.innerHTML = `
-                        <div class="distributor-info">
-                            <img src="${dist.logo}" alt="Company Logo" class="distributor-logo">
-                            <div>
-                                <h3>${dist.name}</h3>
-                                <p>Products: ${dist.products}</p>
-                                <p>Location: ${dist.location}</p>
-                                <p>About: ${dist.about}</p>
-                            </div>
+                <aside class="approval-status-bar">
+                    <h3>Status Overview</h3>
+                    <div class="approval-lists">
+                        <div>
+                            <strong>Approved</strong>
+                            <ul id="approved-list" class="status-list"></ul>
                         </div>
-                        <div class="distributor-actions">
-                            <button class="approve-btn">Approve</button>
-                            <button class="reject-btn">Reject</button>
-                            <button class="text-btn">Text Us</button>
-                            <button class="see-btn">See</button>
+                        <div style="margin-top:1.2rem;">
+                            <strong>Rejected</strong>
+                            <ul id="rejected-list" class="status-list"></ul>
                         </div>
-                    `;
-                    // Approve button event
-                    card.querySelector('.approve-btn').addEventListener('click', () => {
-                        const date = new Date().toLocaleDateString();
-                        shortlistedInfo.style.display = 'block';
-                        shortlistedInfo.innerHTML = `
-                            <h3>Shortlisted Distributor</h3>
-                            <p><strong>Name:</strong> ${dist.name}</p>
-                            <p><strong>Products:</strong> ${dist.products}</p>
-                            <p><strong>Location:</strong> ${dist.location}</p>
-                            <p><strong>Approved On:</strong> ${date}</p>
-                        `;
-                    });
-                    // Reject button event
-                    card.querySelector('.reject-btn').addEventListener('click', () => {
-                        card.style.opacity = '0.4';
-                        card.querySelector('.distributor-actions').innerHTML = '<span style="color:#c00;font-weight:600;">Rejected</span>';
-                    });
-                    // Text Us button event
-                    card.querySelector('.text-btn').addEventListener('click', () => {
-                        window.location.href = 'text.html';
-                    });
-                    // See button event
-                    card.querySelector('.see-btn').addEventListener('click', () => {
-                        alert(`See more about ${dist.name}`);
-                    });
-                    cardsContainer.appendChild(card);
+                    </div>
+                </aside>
+            </div>
+        </section>
+        <script>
+        // Distributor data sample
+        const distributors = Array.from({length: 30}, (_, i) => ({
+            name: `Distributor ${i+1}`,
+            products: ["Vegetables", "Fruits", "Grains", "Pulses"][i%4],
+            location: ["California", "Texas", "Florida", "New York"][i%4] + ", USA",
+            about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            logo: `https://randomuser.me/api/portraits/${i%2===0?'men':'women'}/${30+i}.jpg`,
+            status: null
+        }));
+
+        const cardsContainer = document.getElementById('distributor-cards');
+        const approvedList = document.getElementById('approved-list');
+        const rejectedList = document.getElementById('rejected-list');
+
+        function renderCards() {
+            cardsContainer.innerHTML = '';
+            distributors.forEach((dist, idx) => {
+                const card = document.createElement('div');
+            card.className = 'distributor-card medium-card';
+                card.innerHTML = `
+                    <div class="distributor-info">
+                        <img src="${dist.logo}" alt="Company Logo" class="distributor-logo">
+                        <div>
+                            <h3>${dist.name}</h3>
+                            <p>Products: ${dist.products}</p>
+                            <p>Location: ${dist.location}</p>
+                            <p>About: ${dist.about}</p>
+                        </div>
+                    </div>
+                    <div class="distributor-actions fit-actions">
+                        <button class="approve-btn">Approve</button>
+                        <button class="reject-btn">Reject</button>
+                        <button class="text-btn">Text Us</button>
+                        <button class="see-btn">See</button>
+                    </div>
+                `;
+                // Approve button event
+                card.querySelector('.approve-btn').addEventListener('click', () => {
+                    dist.status = 'approved';
+                    updateStatusBar();
+                    card.remove();
+                    // Store approved info
+                    let approved = JSON.parse(localStorage.getItem('fh_approved_distributors')||'[]');
+                    approved.push({ name: dist.name, products: dist.products, location: dist.location, date: new Date().toLocaleDateString() });
+                    localStorage.setItem('fh_approved_distributors', JSON.stringify(approved));
                 });
-                </script>
+                // Reject button event
+                card.querySelector('.reject-btn').addEventListener('click', () => {
+                    dist.status = 'rejected';
+                    updateStatusBar();
+                    card.remove();
+                    // Store rejected info
+                    let rejected = JSON.parse(localStorage.getItem('fh_rejected_distributors')||'[]');
+                    rejected.push({ name: dist.name, products: dist.products, location: dist.location, date: new Date().toLocaleDateString() });
+                    localStorage.setItem('fh_rejected_distributors', JSON.stringify(rejected));
+                });
+                // Text Us button event
+                card.querySelector('.text-btn').addEventListener('click', () => {
+                    window.location.href = 'text.html';
+                });
+                // See button event
+                card.querySelector('.see-btn').addEventListener('click', () => {
+                    alert(`See more about ${dist.name}`);
+                });
+                cardsContainer.appendChild(card);
+            });
+        }
+
+        function updateStatusBar() {
+            const approved = distributors.filter(d => d.status === 'approved');
+            const rejected = distributors.filter(d => d.status === 'rejected');
+            approvedList.innerHTML = approved.length ? approved.map(d => `<li>${d.name}</li>`).join('') : '<li style="color:#aaa;">None</li>';
+            rejectedList.innerHTML = rejected.length ? rejected.map(d => `<li>${d.name}</li>`).join('') : '<li style="color:#aaa;">None</li>';
+        }
+
+        renderCards();
+        </script>
             </div>
         </section>
     </main>
